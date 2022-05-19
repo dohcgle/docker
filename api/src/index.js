@@ -1,7 +1,7 @@
 const express = require("express");
 const { connectDb } = require("./helpers/db");
 const {host, port, db} = require("./configuration");
-const app = express();
+const app = express( );
 
 
 const startServer = () => {
@@ -18,5 +18,5 @@ app.get("/test/", (req, res) => {
 
 connectDb()
   .on("error", console.log)
-  .on("disconnect", connectDb)
+  .on("disconnected", connectDb)
   .once("open", startServer);
